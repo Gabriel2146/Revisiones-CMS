@@ -45,6 +45,9 @@ Se identificaron problemas de visualización en el componente de programación d
 * **Descripción:** Al intentar acceder a eventos que ya están listados como "Publicados" tras iniciar sesión, el sistema muestra una página de error 404.
 * **Navegación:** Al intentar regresar mediante el botón "Volver al inicio" del 404, el sistema redirige al sitio externo (Somos Chivas) en lugar de volver al Dashboard del CMS.
 
+
+<img width="1356" height="939" alt="image" src="https://github.com/user-attachments/assets/3ae682db-053b-48e4-bd99-44efad112062" />
+
 ---
 
 ## 3. Resumen de Pruebas
