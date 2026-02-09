@@ -15,11 +15,17 @@ Se identificaron problemas de visualización en el componente de programación d
 
 ### A. Desbordamiento en Desktop
 * **Descripción:** El selector de hora se sale del contenedor principal del formulario. El icono del reloj queda fuera de los límites visuales.
-* **Archivo:** `![WhatsApp Image 2026-02-09 at 1 18 54 PM](https://github.com/user-attachments/assets/4e6eb8a1-a2c7-4041-82d4-fa04d4068d8f)`
+* **Archivo:** 
+
+![WhatsApp Image 2026-02-09 at 1 18 54 PM](https://github.com/user-attachments/assets/a751124f-4878-41d1-a28e-e8b695d64ac0)
+
 
 ### B. Desajuste en Mobile
 * **Descripción:** Los campos de fecha y hora pierden alineación y proporción, dificultando la lectura y selección del tiempo de programación.
-* **Archivo:** `![WhatsApp Image 2026-02-09 at 1 22 04 PM](https://github.com/user-attachments/assets/9a442dcc-e7f7-4510-af42-bee67f85c592)`
+* **Archivo:** 
+
+
+![WhatsApp Image 2026-02-09 at 1 22 04 PM](https://github.com/user-attachments/assets/55e85dab-8024-4297-a521-3cfcffec1c9c)
 
 ---
 
@@ -29,7 +35,11 @@ Se identificaron problemas de visualización en el componente de programación d
 * **Problema:** Al intentar actualizar una nota o guardar cambios, el sistema elimina la imagen cargada y arroja un error de validación de tipo.
 * **Mensaje del Sistema:** `Error: featuredMedia.type must be one of the following values: IMAGE, VIDEO`
 * **Detalle:** El CMS no reconoce correctamente el formato del archivo cargado al momento de la edición, lo que impide guardar el progreso del Live Blog.
-* **Archivo:** `![WhatsApp Image 2026-02-09 at 1 27 58 PM](https://github.com/user-attachments/assets/ed5bd047-90f5-4555-b804-53b37e8d6622)`
+* **Archivo:**
+
+
+  ![WhatsApp Image 2026-02-09 at 1 27 58 PM](https://github.com/user-attachments/assets/ecbcf747-e052-4fcf-bf48-b15d0f3e1e0d)
+
 
 ### B. Error 404 y Redirección Incorrecta
 * **Descripción:** Al intentar acceder a eventos que ya están listados como "Publicados" tras iniciar sesión, el sistema muestra una página de error 404.
