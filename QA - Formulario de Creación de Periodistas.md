@@ -3,7 +3,7 @@
 # Reporte de QA - Formulario de Creación de Periodistas
 
 **Portal:** [https://cms.aliviamedia.com/](https://cms.aliviamedia.com/)  
-**Usuario de prueba:** `editor@somoschivas.com.mx`  
+**Usuario de prueba:** `admin@aliviamedia.com`  
 **Fecha de reporte:** 10/02/2026  
 **Objetivo:** Validar la inserción de nuevos autores, validaciones de campos, guardado exitoso y experiencia de usuario en Desktop y Mobile.
 
