@@ -3,7 +3,7 @@
 # Reporte de QA - Creación de Live Blogging
 
 **Portal:** [https://cms.aliviamedia.com/](https://cms.aliviamedia.com/)
-**Usuario de prueba:** `editor@somoschivas.com.mx`
+**Usuario de prueba:** `editor@somoschivas.com.mx. admin@aliviamedia.com y periodista@somoschivas.com.mx`
 **Fecha de reporte:** 09/02/2026
 **Objetivo:** Validar el formulario de inicio de eventos, configuración inicial y visualización en Desktop y Mobile.
 
