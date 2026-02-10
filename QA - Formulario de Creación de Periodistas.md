@@ -1,107 +1,85 @@
-# ✅ QA Report — Formulario de Creación de Periodistas
+# Revisiones-CMS
 
-Este documento presenta los resultados de las pruebas de aseguramiento de calidad realizadas sobre la funcionalidad de **creación y gestión de periodistas/autores** dentro del portal **CMS Alivia Media**.
+# Reporte de QA - Formulario de Creación de Periodistas
 
----
-
-## 📌 Información General
-
-| Campo | Detalle |
-|------|---------|
-| **Portal** | https://cms.aliviamedia.com/ |
-| **Fecha de Prueba** | 10 de febrero de 2026 |
-| **Usuario QA** | editor@somoschivas.com.mx |
-| **Objetivo** | Validar inserción de nuevos autores, validaciones, guardado exitoso y experiencia mobile |
+**Portal:** [https://cms.aliviamedia.com/](https://cms.aliviamedia.com/)  
+**Usuario de prueba:** `editor@somoschivas.com.mx`  
+**Fecha de reporte:** 10/02/2026  
+**Objetivo:** Validar la inserción de nuevos autores, validaciones de campos, guardado exitoso y experiencia de usuario en Desktop y Mobile.
 
 ---
 
-## 🚦 Resumen de Estatus
+## 1. Hallazgos Funcionales (Errores Críticos)
 
-| Requerimiento | Estatus | Observaciones |
-|--------------|---------|--------------|
-| Inserción de nuevos autores | ❌ Fallido | Error crítico impide el guardado |
-| Validaciones de campos (nombres, fotos, etc.) | ✅ Exitoso | Inputs permiten carga correcta de datos y multimedia |
-| Guardado y mensaje de confirmación | ❌ Fallido | El sistema muestra error en lugar de confirmar |
-| Usabilidad en Mobile (inputs/botones) | ✅ Exitoso | Diseño responsivo y elementos accesibles |
+### A. Error de API: `userId is null or undefined`
 
----
-
-## ❗ Hallazgos Críticos (Bloqueantes)
-
-### 🔴 Error de API: `userId is null or undefined`
-
-**Descripción**  
-Al intentar procesar la creación de un nuevo periodista, el sistema despliega un banner de error que bloquea completamente el registro.
-
-**Impacto**  
-- Severidad: **Crítica**
-- Impide el alta de nuevos colaboradores en la base de datos.
-
-**Consistencia**  
-El error ocurre de forma idéntica en:
-
-- Desktop  
-- Mobile  
+* **Descripción:** Al intentar procesar la creación de un nuevo periodista, el sistema despliega un banner de error que bloquea el registro.
+* **Impacto:** Crítico. Impide totalmente el alta de nuevos colaboradores en la base de datos.
+* **Consistencia:** El error ocurre de manera idéntica tanto en Desktop como en Mobile.
+* **Evidencia:**
+  - Desktop: Banner rojo aparece sobre el campo de correo electrónico.  
+  - Mobile: Banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
 
 ---
 
-### 📷 Evidencia Visual
+## 2. Hallazgos de Interfaz y UX (Responsive)
 
-- **Desktop:** Banner rojo aparece sobre el campo de correo electrónico.  
-- **Mobile:** Banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
+A nivel visual y de experiencia de usuario, el formulario presenta buena adaptabilidad y estructura clara.
 
----
+### A. Vista Desktop (Escritorio)
 
-## 🎨 Análisis de Interfaz y UX
-
-### 🖥️ Vista Desktop (Escritorio)
-
-- Se verificó el generador automático de contraseñas.
-- Funciona correctamente el módulo de carga de fotografía de perfil.
-- El formulario presenta estructura clara con campos obligatorios marcados con (*).
-
-**Campos probados:**
-
-- Nombre  
-- Segundo nombre  
-- Apellidos  
-- Biografía profesional  
+* **Funcionalidades verificadas:**
+  - Generador automático de contraseñas.
+  - Área de carga de fotografía de perfil.
+* **Formato:** Campos obligatorios marcados con (*).
+* **Campos probados:**
+  - Nombre  
+  - Segundo nombre  
+  - Apellidos  
+  - Biografía profesional  
 
 ---
 
-### 📱 Vista Mobile (Móvil)
+### B. Vista Mobile (Móvil)
 
-- Inputs como **Correo Electrónico** y **Nombre** se adaptan correctamente al ancho de pantalla.
-- Se mantienen iconos dentro de los campos para guiar al usuario.
-- Menú hamburguesa y botones de navegación visibles y funcionales.
-
----
-
-## 🧪 Datos de Prueba Utilizados
-
-### Correos
-
-- periodista_test1_D@aliviamedia.com  
-- colaborador@aliviamedia.com  
-
-### Nombres
-
-- Test Desktop  
-- Test Móvil  
+* **Adaptabilidad:** Inputs como **Correo Electrónico** y **Nombre** se ajustan correctamente al ancho de pantalla.
+* **Iconografía:** Se mantienen iconos dentro de los campos para mejorar la guía visual.
+* **Navegación:** Menú hamburguesa y botones de navegación visibles y funcionales.
 
 ---
 
-## 🏁 Conclusión y Recomendación
+## 3. Datos de Prueba Utilizados
 
-Aunque la interfaz cumple con estándares de diseño y usabilidad (especialmente en mobile), la funcionalidad principal de guardado está rota.
+* **Correos:**
+  - periodista_test1_D@aliviamedia.com  
+  - colaborador@aliviamedia.com  
 
-✅ Se recomienda revisar con urgencia:
-
-- La lógica de sesión del usuario autenticado  
-- El envío correcto del parámetro **userId** en la API  
-- Validaciones backend antes del deploy final  
+* **Nombres:**
+  - Test Desktop  
+  - Test Móvil  
 
 ---
 
-**Estado general:** ❌ Bloqueado para entrega
+## 4. Resumen de Pruebas
 
+| ID Hallazgo | Gravedad | Categoría | Descripción Corta |
+| :--- | :--- | :--- | :--- |
+| **ERR-001** | Alta | Funcional | Error de API: `userId` null impide guardar periodistas. |
+| **UX-001** | Baja | UI/UX | Formulario responsivo y usable en Mobile. |
+| **VAL-001** | Baja | Validación | Inputs permiten carga correcta de datos y multimedia. |
+
+---
+
+## 5. Conclusiones y Próximos Pasos
+
+Aunque el formulario cumple con estándares de diseño y usabilidad (especialmente en Mobile), la funcionalidad principal de guardado está bloqueada.
+
+Es imperativo revisar antes de entrega final:
+
+* La lógica de sesión del usuario autenticado.
+* El envío correcto del parámetro **userId** en la API.
+* Validaciones backend previas al deploy.
+
+**Estado general:** ❌ Bloqueado para entrega hasta corregir el error crítico.
+
+---
