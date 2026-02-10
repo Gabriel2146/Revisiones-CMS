@@ -1,84 +1,107 @@
-# QA Report: Formulario de Creación de Periodistas
+# ✅ QA Report — Formulario de Creación de Periodistas
 
-Este documento detalla los resultados de las pruebas de aseguramiento de calidad realizadas para la funcionalidad de gestión de autores en el portal **CMS Alivia Media**.
-
----
-
-## 📋 Información General
-
-- **Portal:** https://cms.aliviamedia.com/  
-- **Fecha de Prueba:** 10 de febrero de 2026  
-- **Usuario de Prueba:** editor@somoschivas.com.mx , admin@aliviamedia.com 
-
-- **Objetivo:** Validar la inserción de nuevos autores, las validaciones de campos, el guardado exitoso y la experiencia de usuario en dispositivos móviles.
+Este documento presenta los resultados de las pruebas de aseguramiento de calidad realizadas sobre la funcionalidad de **creación y gestión de periodistas/autores** dentro del portal **CMS Alivia Media**.
 
 ---
 
-## 🚀 Resumen de Estatus
+## 📌 Información General
+
+| Campo | Detalle |
+|------|---------|
+| **Portal** | https://cms.aliviamedia.com/ |
+| **Fecha de Prueba** | 10 de febrero de 2026 |
+| **Usuario QA** | editor@somoschivas.com.mx |
+| **Objetivo** | Validar inserción de nuevos autores, validaciones, guardado exitoso y experiencia mobile |
+
+---
+
+## 🚦 Resumen de Estatus
 
 | Requerimiento | Estatus | Observaciones |
 |--------------|---------|--------------|
-| Validar inserción de nuevos autores | ❌ Fallido | Error crítico impide el guardado |
-| Probar validaciones de campos (nombres, fotos, etc.) | ✅ Exitoso | Los inputs permiten la carga de datos y multimedia |
-| Verificar guardado y mensaje de confirmación | ❌ Fallido | El sistema arroja un error de sistema en lugar de confirmar |
-| Facilidad de llenado en Mobile (inputs/botones) | ✅ Exitoso | El diseño es responsivo y los elementos son accesibles |
+| Inserción de nuevos autores | ❌ Fallido | Error crítico impide el guardado |
+| Validaciones de campos (nombres, fotos, etc.) | ✅ Exitoso | Inputs permiten carga correcta de datos y multimedia |
+| Guardado y mensaje de confirmación | ❌ Fallido | El sistema muestra error en lugar de confirmar |
+| Usabilidad en Mobile (inputs/botones) | ✅ Exitoso | Diseño responsivo y elementos accesibles |
 
 ---
 
-## ❌ Hallazgos Críticos (Bloqueantes)
+## ❗ Hallazgos Críticos (Bloqueantes)
 
-### 1. Error de API: `userId is null or undefined`
+### 🔴 Error de API: `userId is null or undefined`
 
-**Descripción:**  
-Al intentar procesar la creación de un nuevo periodista, el sistema despliega un banner de error que bloquea el registro.
+**Descripción**  
+Al intentar procesar la creación de un nuevo periodista, el sistema despliega un banner de error que bloquea completamente el registro.
 
-**Impacto:**  
-Crítico. Impide totalmente el alta de nuevos colaboradores en la base de datos.
+**Impacto**  
+- Severidad: **Crítica**
+- Impide el alta de nuevos colaboradores en la base de datos.
 
-**Consistencia:**  
-El error se presenta de manera idéntica tanto en la versión Desktop como en la versión Mobile.
+**Consistencia**  
+El error ocurre de forma idéntica en:
 
-**Evidencia:**
-
-- **Desktop:** Aparece un banner rojo sobre el campo de correo electrónico.  
-- **Mobile:** El banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
-
----
-
-## 📱 Análisis de Interfaz y UX
-
-### Vista Desktop (Escritorio)
-
-- **Funcionalidades:** Se verificó el funcionamiento visual del generador automático de contraseñas y el área de carga de fotografía de perfil.
-- **Formato:** El formulario utiliza una estructura de campos clara con indicadores de campos obligatorios (*).
-- **Campos Probados:** Nombre, Segundo nombre, Apellidos y Biografía Profesional.
+- Desktop  
+- Mobile  
 
 ---
 
-### Vista Mobile (Móvil)
+### 📷 Evidencia Visual
 
-- **Adaptabilidad:** Los inputs de **"Correo Electrónico"** y **"Nombre"** se ajustan correctamente al ancho de pantalla.
-- **Iconografía:** Se mantienen los iconos dentro de los campos para mejorar la guía visual del usuario.
-- **Navegación:** Los botones de la barra de navegación (Web Story, Live Blog) y el menú hamburguesa son visibles y funcionales.
+- **Desktop:** Banner rojo aparece sobre el campo de correo electrónico.  
+- **Mobile:** Banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
 
 ---
 
-## 🛠️ Datos de Prueba Utilizados
+## 🎨 Análisis de Interfaz y UX
 
-- **Correos:**  
-  - periodista_test1_D@aliviamedia.com  
-  - colaborador@aliviamedia.com  
+### 🖥️ Vista Desktop (Escritorio)
 
-- **Nombres:**  
-  - "Test Desktop"  
-  - "Test Movil"
+- Se verificó el generador automático de contraseñas.
+- Funciona correctamente el módulo de carga de fotografía de perfil.
+- El formulario presenta estructura clara con campos obligatorios marcados con (*).
+
+**Campos probados:**
+
+- Nombre  
+- Segundo nombre  
+- Apellidos  
+- Biografía profesional  
+
+---
+
+### 📱 Vista Mobile (Móvil)
+
+- Inputs como **Correo Electrónico** y **Nombre** se adaptan correctamente al ancho de pantalla.
+- Se mantienen iconos dentro de los campos para guiar al usuario.
+- Menú hamburguesa y botones de navegación visibles y funcionales.
+
+---
+
+## 🧪 Datos de Prueba Utilizados
+
+### Correos
+
+- periodista_test1_D@aliviamedia.com  
+- colaborador@aliviamedia.com  
+
+### Nombres
+
+- Test Desktop  
+- Test Móvil  
 
 ---
 
 ## 🏁 Conclusión y Recomendación
 
-A pesar de que la interfaz cumple con los estándares de diseño y usabilidad móvil, la funcionalidad de guardado está rota.
+Aunque la interfaz cumple con estándares de diseño y usabilidad (especialmente en mobile), la funcionalidad principal de guardado está rota.
 
-Es imperativo revisar la lógica de la API o la sesión del usuario para corregir el parámetro **userId** antes de la entrega final.
+✅ Se recomienda revisar con urgencia:
+
+- La lógica de sesión del usuario autenticado  
+- El envío correcto del parámetro **userId** en la API  
+- Validaciones backend antes del deploy final  
 
 ---
+
+**Estado general:** ❌ Bloqueado para entrega
+
