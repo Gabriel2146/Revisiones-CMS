@@ -17,8 +17,14 @@
 * **Impacto:** Crítico. Impide totalmente el alta de nuevos colaboradores en la base de datos.
 * **Consistencia:** El error ocurre de manera idéntica tanto en Desktop como en Mobile.
 * **Evidencia:**
-  - Desktop: Banner rojo aparece sobre el campo de correo electrónico.  
+  - Desktop: Banner rojo aparece sobre el campo de correo electrónico.
+
+    ![WhatsApp Image 2026-02-10 at 12 39 31 PM](https://github.com/user-attachments/assets/8d285b68-3c2b-43d4-bbd8-bee1553daca0)
+
+
   - Mobile: Banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
+  
+    ![WhatsApp Image 2026-02-10 at 2 46 51 PM](https://github.com/user-attachments/assets/621292db-4edc-4595-95aa-04e5428a54c2)
 
 ---
 
