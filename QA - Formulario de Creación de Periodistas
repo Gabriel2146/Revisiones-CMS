@@ -1,0 +1,84 @@
+# QA Report: Formulario de Creación de Periodistas
+
+Este documento detalla los resultados de las pruebas de aseguramiento de calidad realizadas para la funcionalidad de gestión de autores en el portal **CMS Alivia Media**.
+
+---
+
+## 📋 Información General
+
+- **Portal:** https://cms.aliviamedia.com/  
+- **Fecha de Prueba:** 10 de febrero de 2026  
+- **Usuario de Prueba:** editor@somoschivas.com.mx , admin@aliviamedia.com 
+
+- **Objetivo:** Validar la inserción de nuevos autores, las validaciones de campos, el guardado exitoso y la experiencia de usuario en dispositivos móviles.
+
+---
+
+## 🚀 Resumen de Estatus
+
+| Requerimiento | Estatus | Observaciones |
+|--------------|---------|--------------|
+| Validar inserción de nuevos autores | ❌ Fallido | Error crítico impide el guardado |
+| Probar validaciones de campos (nombres, fotos, etc.) | ✅ Exitoso | Los inputs permiten la carga de datos y multimedia |
+| Verificar guardado y mensaje de confirmación | ❌ Fallido | El sistema arroja un error de sistema en lugar de confirmar |
+| Facilidad de llenado en Mobile (inputs/botones) | ✅ Exitoso | El diseño es responsivo y los elementos son accesibles |
+
+---
+
+## ❌ Hallazgos Críticos (Bloqueantes)
+
+### 1. Error de API: `userId is null or undefined`
+
+**Descripción:**  
+Al intentar procesar la creación de un nuevo periodista, el sistema despliega un banner de error que bloquea el registro.
+
+**Impacto:**  
+Crítico. Impide totalmente el alta de nuevos colaboradores en la base de datos.
+
+**Consistencia:**  
+El error se presenta de manera idéntica tanto en la versión Desktop como en la versión Mobile.
+
+**Evidencia:**
+
+- **Desktop:** Aparece un banner rojo sobre el campo de correo electrónico.  
+- **Mobile:** El banner aparece inmediatamente debajo del título **"Crear nuevo periodista"**.
+
+---
+
+## 📱 Análisis de Interfaz y UX
+
+### Vista Desktop (Escritorio)
+
+- **Funcionalidades:** Se verificó el funcionamiento visual del generador automático de contraseñas y el área de carga de fotografía de perfil.
+- **Formato:** El formulario utiliza una estructura de campos clara con indicadores de campos obligatorios (*).
+- **Campos Probados:** Nombre, Segundo nombre, Apellidos y Biografía Profesional.
+
+---
+
+### Vista Mobile (Móvil)
+
+- **Adaptabilidad:** Los inputs de **"Correo Electrónico"** y **"Nombre"** se ajustan correctamente al ancho de pantalla.
+- **Iconografía:** Se mantienen los iconos dentro de los campos para mejorar la guía visual del usuario.
+- **Navegación:** Los botones de la barra de navegación (Web Story, Live Blog) y el menú hamburguesa son visibles y funcionales.
+
+---
+
+## 🛠️ Datos de Prueba Utilizados
+
+- **Correos:**  
+  - periodista_test1_D@aliviamedia.com  
+  - colaborador@aliviamedia.com  
+
+- **Nombres:**  
+  - "Test Desktop"  
+  - "Test Movil"
+
+---
+
+## 🏁 Conclusión y Recomendación
+
+A pesar de que la interfaz cumple con los estándares de diseño y usabilidad móvil, la funcionalidad de guardado está rota.
+
+Es imperativo revisar la lógica de la API o la sesión del usuario para corregir el parámetro **userId** antes de la entrega final.
+
+---
