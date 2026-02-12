@@ -1,47 +1,53 @@
-# Reporte de QA: Estado del CMS (Post-Actualización)
+# Reporte Consolidado de QA: CMS Alivia Media
 
-**Fecha:** 12 de febrero de 2026.
-**Estado General:** **Estable con observaciones críticas en permisos y multimedia.**
+Este documento integra los hallazgos de las pruebas realizadas los días 11 y 12 de febrero de 2026, cubriendo tanto la actualización general del sistema como el módulo específico de gestión de periodistas.
+
+## Información General
+
+* **Portal:** `https://cms.aliviamedia.com/`
+* **Fechas de Prueba:** 11 y 12 de febrero de 2026.
+* **Estado General:** **Estable con observaciones críticas en permisos y multimedia**.
 
 ---
 
 ## Resumen de Estatus de Funcionalidad
 
-| Módulo | Estatus | Observaciones |
+| Módulo / Requerimiento | Estatus | Observaciones |
 | --- | --- | --- |
-| **CRUD (Artículos, Stories, Live Blog)** | Operativo | La edición de borradores y funciones generales del CRUD funcionan correctamente. |
-| **Creación de Periodistas** | Corregido | Las validaciones de campos obligatorios y la inserción de datos ya son funcionales. |
-| **Visualización de Periodistas** | Parcial | La tabla muestra los datos, pero persiste el error en la imagen de perfil. |
-| **Navegación (Publicados)** | Nota Técnica | El error 404 en historias publicadas es un comportamiento esperado por falta de sincronización del front-end. |
+| **CRUD (Artículos, Stories, Live Blog)** | Operativo | Edición de borradores y funciones generales funcionan correctamente. |
+| **Creación de Periodistas** | Corregido | Validaciones de campos obligatorios e inserción de datos ya son funcionales. |
+| **Integridad de Información (Tabla)** | Exitoso | Nombres, roles, correos y productividad se muestran correctamente. |
+| **Adaptabilidad Mobile** | Exitoso | Las columnas de la tabla se ajustan según lo esperado. |
+| **Velocidad de carga** | Exitoso | Respuesta fluida al renderizar la lista de periodistas. |
+| **Visualización de Periodistas** | Parcial | Persiste el error en la imagen de perfil dentro de la tabla. |
+| **Navegación (Publicados)** | Nota Técnica | Error 404 esperado por falta de sincronización del front-end con el nuevo back-end. |
 
 ---
 
-## Hallazgos Pendientes y Nuevos Errores
+## Hallazgos Detallados y Errores Identificados
 
 ### 1. Gestión de Periodistas (Tabla y Acciones)
 
-* **Error en Multimedia (Persistente):** Las fotografías de los periodistas siguen sin visualizarse correctamente en la tabla general de consulta.
+* **Error de Renderizado Multimedia (Persistente):** La tabla no logra cargar la imagen de perfil (avatar) de algunos periodistas, mostrando un icono de imagen rota o contenedor vacío. Este error es visible en registros nuevos o recientemente vinculados, afectando la estética e identificación rápida.
 * **Restricción de Edición (Nuevo):** El usuario con rol **Admin** no tiene habilitada la opción de editar periodistas desde el menú de acciones.
-* **Estado de Validaciones:** Se confirma que el sistema ya impide el registro si no se completa la información requerida (validación exitosa).
+* **Análisis de Columnas:** Se validó que los metadatos de Rol (Editor Jefe, Periodista, etc.), Estado (Activo) y Productividad (conteo de artículos y último acceso) se despliegan correctamente.
 
-### 2. Error 404 en Historias Publicadas
+### 2. Navegación y Errores de Redirección
 
-* **Estado:** No solucionado, pero identificado.
-* **Causa Raíz:** El enlace redirige al sitio del medio, cuyo front-end aún no está actualizado con el nuevo back-end.
-* **Acción:** Se mantendrá como "pendiente" hasta el despliegue final del sitio público.
+* **Error 404 en Historias Publicadas:** Identificado pero no solucionado. Se debe a que el enlace redirige al sitio del medio, cuyo front-end aún no está actualizado para comunicarse con el nuevo back-end. Permanecerá como pendiente hasta el despliegue final del sitio público.
 
 ---
 
-## Próximas Pruebas (Checklist para las 12:30 p. m.)
+## Próximas Pruebas (Checklist de Cierre)
 
-Para el cierre del reporte solicitado por LeoJP, se están verificando actualmente los siguientes puntos para asegurar que no existan regresiones:
+Actualmente se verifican los siguientes puntos para asegurar que no existan regresiones tras las últimas correcciones:
 
-* [ ] **Subida de medios:** Confirmar si permite subir imágenes y videos sin errores de validación de tipo (Error `featuredMedia`).
-* [ ] **Borrado de posts:** Validar que la eliminación de artículos, stories y blogs se ejecute correctamente.
-* [ ] **Edición de Web Stories:** Verificar que los cambios en el editor de historias se guarden sin pérdida de datos.
+* [ ] **Subida de medios:** Validar imágenes y videos sin errores de tipo (`featuredMedia`).
+* [ ] **Borrado de posts:** Confirmar eliminación de artículos, stories y blogs.
+* [ ] **Edición de Web Stories:** Asegurar que el guardado de cambios no presente pérdida de datos.
 
+---
 
-## 🏁 Conclusión Técnica
+## Conclusión Técnica
 
-La actualización corrigió los bloqueos críticos de creación (inserción de datos), pero persisten detalles visuales en la tabla de periodistas y una posible inconsistencia en los permisos del rol Administrador para la edición de perfiles.
-
+La actualización del 11 de febrero corrigió los bloqueos críticos de creación e inserción de datos. La página de consulta es funcional y cumple con la mayoría de los criterios de usabilidad y adaptabilidad. Sin embargo, persisten **detalles visuales en el renderizado de fotos** y una **inconsistencia en los permisos del rol Administrador** que deben atenderse antes de la entrega final.
