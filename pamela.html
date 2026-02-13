@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Pamela ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #d63384;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            10%, 30% {
+                transform: scale(1.1);
+            }
+            20%, 40% {
+                transform: scale(1);
+            }
+        }
+
+        .subtitle {
+            color: #6c757d;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .message {
+            color: #495057;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin: 30px 0;
+            text-align: left;
+            padding: 20px;
+            background: rgba(214, 51, 132, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid #d63384;
+        }
+
+        .btn-container {
+            margin: 40px 0;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+
+        .heart {
+            position: fixed;
+            color: #ff6b9d;
+            font-size: 30px;
+            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .reasons-list {
+            text-align: left;
+            margin: 30px auto;
+            max-width: 600px;
+        }
+
+        .reason-item {
+            background: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .reason-item:nth-child(1) { animation-delay: 0.1s; }
+        .reason-item:nth-child(2) { animation-delay: 0.2s; }
+        .reason-item:nth-child(3) { animation-delay: 0.3s; }
+        .reason-item:nth-child(4) { animation-delay: 0.4s; }
+        .reason-item:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .date {
+            color: #d63384;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>❤️ Para Pamela ❤️</h1>
+        <p class="subtitle">Algo especial en un día especial</p>
+        <p class="date">14 de Febrero de 2026</p>
+        
+        <div class="message">
+            <p>Hola Pamela,</p>
+            <br>
+            <p>En este día tan especial quería hacer algo diferente para decirte lo increíble que eres. No soy muy bueno con las palabras, pero sí con el código, así que te hice esta página especial.</p>
+            <br>
+            <p>Cada vez que pienso en ti, mi corazón late más fuerte y el mundo se ve más colorido. Eres esa persona que hace que hasta los días difíciles valgan la pena.</p>
+        </div>
+
+        <div class="btn-container">
+            <button class="btn" onclick="showReasons()">¿Por qué eres especial? 💕</button>
+        </div>
+
+        <div id="reasonsSection" class="hidden">
+            <h2 style="color: #d63384; margin: 30px 0;">Razones por las que me gustas</h2>
+            <div class="reasons-list">
+                <div class="reason-item">
+                    <span class="emoji">✨</span>
+                    <span>Tu sonrisa ilumina cualquier lugar donde estés</span>
+                </div>
+                <div class="reason-item">
+                    <span class="emoji">💫</span>
+                    <span>Tu personalidad única que me hace sonreír siempre</span>
+                </div>
+                <div class="reason-item">
+                    <span class="emoji">🌟</span>
+                    <span>La forma en que ves el mundo y me haces verlo diferente</span>
+                </div>
+                <div class="reason-item">
+                    <span class="emoji">💖</span>
+                    <span>Cómo me haces sentir cuando estamos juntos</span>
+                </div>
+                <div class="reason-item">
+                    <span class="emoji">🌸</span>
+                    <span>Simplemente por ser tú, auténtica y maravillosa</span>
+                </div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" onclick="showPhotos()">Ver momentos especiales 📸</button>
+            </div>
+        </div>
+
+        <div id="photosSection" class="hidden">
+            <h2 style="color: #d63384; margin: 30px 0;">Nuestros momentos</h2>
+            <div class="photos-grid">
+                <div class="photo-placeholder">🌹</div>
+                <div class="photo-placeholder">💝</div>
+                <div class="photo-placeholder">🌺</div>
+                <div class="photo-placeholder">💕</div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn" onclick="showFinalMessage()">Un último mensaje... 💌</button>
+            </div>
+        </div>
+
+        <div id="finalSection" class="hidden">
+            <div class="message">
+                <h2 style="color: #d63384; margin-bottom: 20px;">Para finalizar...</h2>
+                <p>Pamela, no sé qué nos depare el futuro, pero sí sé que me gustaría compartir más momentos contigo. Eres alguien muy especial para mí y quería que lo supieras en este día.</p>
+                <br>
+                <p>Gracias por ser quien eres y por alegrar mis días simplemente con tu presencia.</p>
+                <br>
+                <p style="text-align: center; font-size: 1.3em; color: #d63384; margin-top: 20px;">
+                    <strong>Feliz Día de San Valentín ❤️</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Crear corazones flotantes
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        setInterval(createHeart, 800);
+
+        function showReasons() {
+            document.getElementById('reasonsSection').classList.remove('hidden');
+            event.target.style.display = 'none';
+        }
+
+        function showPhotos() {
+            document.getElementById('photosSection').classList.remove('hidden');
+            event.target.parentElement.style.display = 'none';
+        }
+
+        function showFinalMessage() {
+            document.getElementById('finalSection').classList.remove('hidden');
+            event.target.parentElement.style.display = 'none';
+        }
+
+        // Efecto de partículas al hacer clic
+        document.addEventListener('click', function(e) {
+            const colors = ['#ff6b9d', '#ff8cb4', '#ffa5cb', '#ffbed2'];
+            for(let i = 0; i < 5; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.left = e.clientX + 'px';
+                particle.style.top = e.clientY + 'px';
+                particle.style.width = '10px';
+                particle.style.height = '10px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.pointerEvents = 'none';
+                particle.style.animation = 'particle 1s ease-out forwards';
+                
+                const angle = (Math.PI * 2 * i) / 5;
+                const velocity = 50;
+                particle.style.setProperty('--tx', Math.cos(angle) * velocity + 'px');
+                particle.style.setProperty('--ty', Math.sin(angle) * velocity + 'px');
+                
+                document.body.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 1000);
+            }
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes particle {
+                to {
+                    transform: translate(var(--tx), var(--ty));
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
